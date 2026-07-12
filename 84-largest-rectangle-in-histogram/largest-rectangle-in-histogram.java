@@ -1,29 +1,32 @@
 class Solution {
     public int largestRectangleArea(int[] heights) {
         int n = heights.length;
-        Stack<Integer> stack1 = new Stack<>();
-        Stack<Integer> stack2 = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         int[] prev = new int[n];
         int[] next = new int[n];
         
         for(int i=0; i<n; i++) {
             int curr = heights[i];
 
-            while(!stack1.isEmpty() && curr <= heights[stack1.peek()]) {  //previous smalller //left->right
-                stack1.pop();
+            while(!stack.isEmpty() && curr <= heights[stack.peek()]) {  //previous smalller //left->right
+                stack.pop();
             }
-            prev[i] = stack1.isEmpty() ? -1 : stack1.peek();
-            stack1.push(i);
+            prev[i] = stack.isEmpty() ? -1 : stack.peek();
+            stack.push(i);
         }
 
+        while(!stack.isEmpty()) {
+            stack.pop();
+        }
+        
         for(int i=n-1; i>=0; i--) {
             int curr = heights[i];
 
-            while(!stack2.isEmpty() && curr <= heights[stack2.peek()]) {  //next smaller  //right->left
-                stack2.pop();
+            while(!stack.isEmpty() && curr <= heights[stack.peek()]) {  //next smaller  //right->left
+                stack.pop();
             }
-            next[i] = stack2.isEmpty() ? n : stack2.peek();
-            stack2.push(i);
+            next[i] = stack.isEmpty() ? n : stack.peek();
+            stack.push(i);
         }
 
         int area = 0;
