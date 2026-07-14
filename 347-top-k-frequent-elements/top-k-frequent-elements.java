@@ -3,7 +3,7 @@ class Solution {
         Map<Integer, Integer> map = new HashMap<>();
 
         PriorityQueue<Integer> pq = new PriorityQueue<>(
-            (a, b) -> map.get(b) - map.get(a)
+            (a, b) -> map.get(a) - map.get(b)
         );
 
         for (int num : nums) {
@@ -12,6 +12,9 @@ class Solution {
 
         for(int key : map.keySet()) {
             pq.add(key);
+            if(pq.size() > k) {
+                pq.poll();
+            }
         }
         int[] ans = new int[k];
 
