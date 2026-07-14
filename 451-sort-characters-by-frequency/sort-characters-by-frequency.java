@@ -16,7 +16,9 @@ class Solution {
         StringBuilder sb = new StringBuilder();
 
         for(char c : list) {
-            for(int i=0; i<map.get(c); i++) {
+            int freq = map.get(c);
+
+            while(freq-- != 0) {
                 sb.append(c);
             }
         }
