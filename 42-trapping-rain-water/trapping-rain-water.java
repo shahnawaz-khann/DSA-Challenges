@@ -20,7 +20,7 @@ class Solution {
         int ans = 0;
         for(int i=0; i<n; i++) {
             int min = Math.min(left[i], right[i]);
-            ans = ans + Math.abs((min - height[i]));
+            ans = ans + (min - height[i]);
         }
         return ans;
     } 
