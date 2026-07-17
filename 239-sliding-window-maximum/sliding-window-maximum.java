@@ -16,7 +16,7 @@ class Solution {
             if(i - left + 1 > k) {
                 left++;
             }
-            while(!q.isEmpty() && q.peekFirst() < left) {
+            if(!q.isEmpty() && q.peekFirst() < left) {
                 q.pollFirst();
             }
 
