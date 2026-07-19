@@ -1,11 +1,19 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        StringBuilder sb = new StringBuilder();
-        for(char c : s.toCharArray()) {
-            if(Character.isLetterOrDigit(c)) {
-                sb.append(Character.toLowerCase(c));
+        int i=0; int j = s.length() - 1;
+
+        while(i < j) {
+            while(i<j && !Character.isLetterOrDigit(s.charAt(i))) {
+                i++;
             }
+            while(i<j && !Character.isLetterOrDigit(s.charAt(j))) {
+                j--;
+            }
+            if(Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) {
+                return false;
+            }
+            i++; j--;
         }
-        return sb.toString().equals(sb.reverse().toString());
+        return true;
     }
 }
