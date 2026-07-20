@@ -14,18 +14,12 @@ class Solution {
     }
     private void expand(String s, int i, int j) {
 
-        while(i >= 0 && j <= s.length()-1) {
-            
-            if(s.charAt(i) == s.charAt(j)) {
-                if(j - i + 1 > maxLength) {
-                    maxLength = j - i + 1;
-                    start = i;
-                }
-                i--; j++;
+        while(i >= 0 && j <= s.length()-1 && s.charAt(i) == s.charAt(j)) {
+            if(j - i + 1 > maxLength) {
+                maxLength = j - i + 1;
+                start = i;
             }
-            else {
-                break;
-            }
+            i--; j++;
         }
     }
 }
