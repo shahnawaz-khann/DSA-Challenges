@@ -20,9 +20,9 @@ class Solution {
         for(int i=0; i<postorder.length; i++) {
             map.put(postorder[i], i);
         }
-        return buildTree(preorder, postorder, 0, postorder.length - 1);
+        return buildTree(preorder, 0, postorder.length - 1);
     }
-    private TreeNode buildTree(int[] preorder, int[] postorder, int left, int right) {
+    private TreeNode buildTree(int[] preorder, int left, int right) {
         if(left > right) return null;
         TreeNode root = new TreeNode(preorder[i++]);
         if(left == right) {
@@ -32,8 +32,8 @@ class Solution {
         int mid = map.get(leftroot);
 
         
-        root.left = buildTree(preorder, postorder, left, mid);
-        root.right = buildTree(preorder, postorder, mid + 1, right - 1);
+        root.left = buildTree(preorder, left, mid);
+        root.right = buildTree(preorder, mid + 1, right - 1);
 
         return root;
     }
