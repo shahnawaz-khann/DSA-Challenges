@@ -33,9 +33,8 @@ class Solution {
 
         
         root.left = buildTree(preorder, postorder, left, mid);
-        if(mid+1 <= right - 1) {
-            root.right = buildTree(preorder, postorder, mid + 1, right - 1);
-        }
+        root.right = buildTree(preorder, postorder, mid + 1, right - 1);
+
         return root;
     }
 }
