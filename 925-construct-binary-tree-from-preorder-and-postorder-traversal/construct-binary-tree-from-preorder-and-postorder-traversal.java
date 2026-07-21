@@ -23,7 +23,7 @@ class Solution {
         return buildTree(preorder, postorder, 0, postorder.length - 1);
     }
     private TreeNode buildTree(int[] preorder, int[] postorder, int left, int right) {
-         if(left > right) return null;
+        if(left > right) return null;
         TreeNode root = new TreeNode(preorder[i++]);
         if(left == right) {
             return root;
@@ -33,8 +33,9 @@ class Solution {
 
         
         root.left = buildTree(preorder, postorder, left, mid);
-        root.right = buildTree(preorder, postorder, mid + 1, right - 1);
-
+        if(mid+1 <= right - 1) {
+            root.right = buildTree(preorder, postorder, mid + 1, right - 1);
+        }
         return root;
     }
 }
