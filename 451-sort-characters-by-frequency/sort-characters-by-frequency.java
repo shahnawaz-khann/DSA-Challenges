@@ -11,7 +11,10 @@ class Solution {
 
         StringBuilder sb = new StringBuilder();
         for(char c : list) {
-            sb.append(String.valueOf(c).repeat(map.get(c)));
+            int freq = map.get(c);
+            while(freq-- !=0) {
+                sb.append(c);
+            }
         }
         return sb.toString();
     }
