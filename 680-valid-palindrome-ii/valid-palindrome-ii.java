@@ -1,15 +1,17 @@
 class Solution {
     public boolean validPalindrome(String s) {
-        int i=0; int j = s.length() - 1;
+        int i = 0;
+        int j = s.length() - 1;
+
         while(i < j) {
             if(s.charAt(i) != s.charAt(j)) {
-                return isPalindrom(s, i+1, j) || isPalindrom(s, i, j-1);
+                return isPalindrome(i, j-1, s) || isPalindrome(i+1, j, s);
             }
             i++; j--;
         }
         return true;
     }
-    private boolean isPalindrom(String s, int i, int j) {
+    private boolean isPalindrome(int i, int j, String s) {
         while(i < j) {
             if(s.charAt(i) != s.charAt(j)) {
                 return false;
