@@ -3,10 +3,12 @@ class Solution {
         Map<String, List<String>> map = new HashMap<>();
 
         for(String str : strs) {
-            char[] arr = str.toCharArray();
-            Arrays.sort(arr);
-            String key = new String(arr);
-            
+            int[] freq = new int[26];
+            for(char c : str.toCharArray()) {
+                freq[c - 'a']++;
+            }
+            String key = Arrays.toString(freq);
+
             if(!map.containsKey(key)) {
                 map.put(key, new ArrayList<>());
             }
