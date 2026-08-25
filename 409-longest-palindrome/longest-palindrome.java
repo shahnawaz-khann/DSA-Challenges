@@ -8,12 +8,12 @@ class Solution {
         }
 
         int count = 0;
-        for(char c : map.keySet()) {
-            if(map.get(c) % 2 == 0) {
-                count += map.get(c);
+        for(int freq : map.values()) {
+            if(freq % 2 == 0) {
+                count += freq;
             }
             else {
-                count += map.get(c) - 1;
+                count += freq - 1;
                 isOdd = true;
             }
         }
