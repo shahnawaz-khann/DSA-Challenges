@@ -26,7 +26,7 @@
         }
         private boolean isTrue(int[] freq) {
             for(int x : freq) {
-                if(x > 0) {
+                if(x != 0) {
                     return false;
                 }
             }
