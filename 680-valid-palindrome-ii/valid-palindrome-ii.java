@@ -1,21 +1,19 @@
 class Solution {
     public boolean validPalindrome(String s) {
         int i = 0;
-        int j = s.length() - 1;
+        int j = s.length()-1;
 
         while(i < j) {
             if(s.charAt(i) != s.charAt(j)) {
-                return isPalindrome(i, j-1, s) || isPalindrome(i+1, j, s);
+                return isPalindrome(s, i, j-1) || isPalindrome(s, i+1, j);
             }
             i++; j--;
         }
         return true;
     }
-    private boolean isPalindrome(int i, int j, String s) {
+    private boolean isPalindrome(String s, int i, int j) {
         while(i < j) {
-            if(s.charAt(i) != s.charAt(j)) {
-                return false;
-            }
+            if(s.charAt(i) != s.charAt(j)) return false;
             i++; j--;
         }
         return true;
