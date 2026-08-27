@@ -4,11 +4,11 @@ class Solution {
         int max = 0; int count = 0;
         for(int right = 0; right < s.length(); right++) {
             char c = s.charAt(right);
-            if("aeiou".indexOf(c) != -1) {
+            if(isVowel(c)) {
                 count++;
             }
             if(right - left + 1 > k) {
-                if("aeiou".indexOf(s.charAt(left)) != -1) {
+                if(isVowel(s.charAt(left))) {
                     count--;
                 }
                 left++;
@@ -16,5 +16,8 @@ class Solution {
             max = Math.max(max, count);
         }
         return max;
+    }
+    private boolean isVowel(char c) {
+        return "aeiou".indexOf(c) != -1;
     }
 }
