@@ -15,16 +15,15 @@ class Solution {
                 two++;
             }
         }
-
-        int i = 0;
+        int k = 0;
         while(zero-- > 0) {
-            nums[i++] = 0;
+            nums[k++] = 0;
         }
         while(one-- > 0) {
-            nums[i++] = 1;
+            nums[k++] = 1;
         }
         while(two-- > 0) {
-            nums[i++] = 2;
+            nums[k++] = 2;
         }
     }
 }
