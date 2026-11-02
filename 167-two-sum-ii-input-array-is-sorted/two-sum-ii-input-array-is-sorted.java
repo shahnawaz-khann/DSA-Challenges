@@ -9,11 +9,11 @@ class Solution {
             if(sum == target) {
                 return new int[]{left+1, right+1};
             }
-            else if(sum < target) {
-                left++;
+            else if(sum > target) {
+                right--;
             }
             else {
-                right--;
+                left++;
             }
         }
         return new int[]{};
